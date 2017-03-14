@@ -6,9 +6,9 @@ package course.Daniel.Java;
 public class Circle {
     private double radius;
 
-    public Circle(double radius) {
+    public Circle(double radius) throws Exception {
         if (radius < 0)
-            throw new RuntimeException();
+            throw new Exception();
         this.radius = radius;
     }
 }
