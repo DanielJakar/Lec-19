@@ -72,6 +72,26 @@ public class IO {
         int n = scan.nextInt(); //alt + Enter here...
         return n;
     }
+    public static int getInteger(String prompt){
+
+        Scanner scan = new Scanner(System.in);
+
+        while (true)
+            try {
+                System.out.println(prompt);
+//            int result = scan.nextInt();
+//            scan.nextLine();
+                String input = scan.nextLine();
+                return Integer.valueOf(input);
+            }
+            catch (NumberFormatException e){
+                System.out.println("Bad input, must be a number. Please try again:");
+            }
+            catch (Exception e){
+                System.out.println();
+                e.printStackTrace();
+            }
+    }
 
     public static double getDouble(String prompt){
         System.out.println(prompt);

@@ -1,20 +1,87 @@
 package course.Daniel.Java;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-//        getInt("Enter a number:");
+        try {
 
-        int x = getInteger("Enter a number:");
-        System.out.println(x);
+           Circle c = new Circle(-1);
 
-        System.out.println("Enter full name");
-        String line = scan.nextLine();
-        System.out.println(line);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+
+
+//        String reddit = "https://www.reddit.com/.json";
+//        try {
+//            URL url = new URL(reddit);
+//            URLConnection con = url.openConnection();
+//            InputStream in = con.getInputStream();
+//        } catch (MalformedURLException e) {
+//            System.out.println("Bad URL");
+//        } catch (IOException e) {
+//            System.out.println("Please connect to the internet!");
+//        } catch (Exception e){
+//            writetofile();
+//        }
+
+
+//
+
+
+
+    }
+
+    private static void writetofile() {try {
+                FileWriter writer = new FileWriter("1.txt");
+                writer.write("Hello world");
+                writer.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     }
 
     public static int getInt(String prompt){
@@ -32,20 +99,5 @@ public class Main {
         }
     }
 
-    public static int getInteger(String prompt){
 
-        Scanner scan = new Scanner(System.in);
-
-        while (true)
-        try {
-            System.out.println(prompt);
-//            int result = scan.nextInt();
-//            scan.nextLine();
-            String input = scan.nextLine();
-            return Integer.valueOf(input);
-        }
-        catch (Exception e){
-            System.out.println("Bad input, try again:");
-        }
-    }
 }
