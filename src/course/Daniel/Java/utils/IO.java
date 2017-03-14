@@ -1,6 +1,11 @@
 package course.Daniel.Java.utils;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Scanner;
 
 public class IO {
@@ -173,5 +178,48 @@ public class IO {
             System.out.print("_");
         }
         System.out.println();
+    }
+
+    public static boolean writeToFileOld (String fileName, String bodyToEnter){
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(fileName, true);
+            writer.write(bodyToEnter);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer!=null){
+                try {
+                    writer.close();
+                } catch (IOException e1){
+                    e1.printStackTrace();
+                }
+            }
+        }
+        return false;
+
+    }
+
+    public static List<String> read (String path){
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(path));
+            return lines;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static boolean writeToFile (String path, String data){
+        try (FileWriter writer = new FileWriter(path, true);){
+            writer.write(data);
+            return true;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+
     }
 }

@@ -11,42 +11,28 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
+        FileWriter writer = null;
         try {
-
-           Circle c = new Circle(-1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            writer = new FileWriter("1.txt");
+            writer.write("Hello Java.");//security problem -> IO Fails.
 
         }
-        catch (Exception e){
+        catch (IOException e){
             e.printStackTrace();
+            //Show animation for unknown error.
+            }
+            finally {
+            if (writer!=null){
+                try {
+                    writer.close();
+                } catch (IOException e1){
+                    e1.printStackTrace();
+                }
+            }
         }
+
+        //code that tries to read the file....
 
 
 
