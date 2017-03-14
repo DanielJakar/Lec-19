@@ -6,27 +6,46 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter a radius:");
-        int radius = scan.nextInt();
+//        getInt("Enter a number:");
+
+        int x = getInteger("Enter a number:");
+        System.out.println(x);
+
+        System.out.println("Enter full name");
+        String line = scan.nextLine();
+        System.out.println(line);
+
+    }
+
+    public static int getInt(String prompt){
+        System.out.println(prompt);
+        Scanner scan = new Scanner(System.in);
 
         try {
-            Circle c = new Circle(radius);
-        } catch (Exception e) {
-            System.out.println("invalid radius!");
-            System.out.println("Enter a new value:");
-            radius = scan.nextInt();
 
+            int result = scan.nextInt();
+            return result;
         }
-//        int[] arr = {1,2,3};
-//        try {
-//            for (int i = 0; i <= arr.length ; i++) {
-//                System.out.println(arr[i]);
-//
-//            }
-//        }
-//        catch (Exception e){
-//            e.printStackTrace();
-//        }
+        catch (Exception e){
+            System.out.println("Bad input, try again:");
+            return getInt(prompt);
+        }
+    }
 
+    public static int getInteger(String prompt){
+
+        Scanner scan = new Scanner(System.in);
+
+        while (true)
+        try {
+            System.out.println(prompt);
+//            int result = scan.nextInt();
+//            scan.nextLine();
+            String input = scan.nextLine();
+            return Integer.valueOf(input);
+        }
+        catch (Exception e){
+            System.out.println("Bad input, try again:");
+        }
     }
 }
